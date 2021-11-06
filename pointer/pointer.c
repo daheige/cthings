@@ -49,6 +49,16 @@ struct unit{
     int num;
 };
 
+typedef int *t;
+
+// 定义函数指针类型别名，fn是一个指向函数的指针,这个函数fn签名是(const char *str)
+// 函数指针
+typedef void (*fn)(const char *);
+
+void say_hello(const char *str){
+    printf("hello,%s\n",str);
+}
+
 int main (void) {
     // p是int类型的指针类型,不确定的指针地址称为野指针，一般在定义指针变量时候，初始化为NULL
     int *p = NULL; // 指针占据4字节，对于void *指针常用于函数接口
@@ -86,7 +96,46 @@ int main (void) {
     pu->c = 'b';
     pu->num = 1;
 
-    printf("u.c = %c,u.num = %d",u.c,u.num);
+    printf("u.c = %c,u.num = %d\n",u.c,u.num);
+
+    // 指向指针的指针与指针数组
+    int x = 12;
+    int *pi = &x;
+    // pi--->x的内存地址
+    // ppi-->pi的内存地址
+    int **ppi = &pi; // 这里pi是一个int类型的指针变量，对于ppi是指向指针的指针变量
+
+    // pi = 0x7ffee7c992dc,ppi = 0x7ffee7c992d0,x = 12,&x = 0x7ffee7c992dc
+    printf("pi = %p,ppi = %p,x = %d,&x = %p\n",pi,ppi,x,&x);
+
+    // 指针数组
+    // 数组中的每个元素可以是基本类型，也可以复合类型，因此也可以是指针类型。
+    // 例如定义一个数组a由10个元素组成，每个元素都是int *指针：
+    int *a1[10];
+    int b[10] = {1,2,3,4,5};
+    a1[0] = &b[0];
+    a1[1] = &b[1];
+    printf("a1[0] = %p,&b = %p\n",a1[0],&b);
+
+    // 指向数组的指针
+    int (*b1)[10]; // 相当于typedef int *t;t a[10]; 这种是int数组的指针
+    // 相当于    typedef int t[10];
+    //          t *a; // t代表由10个int组成的数组类型，a则是指向这种类型的指针。
+    int b2[10] = {1,2,3,4,5};
+    b1 = &b2;
+    printf("b1 = %p,&b2 = %p\n",b1,&b2); // b1 = 0x7ffeec00a270,&b2 = 0x7ffeec00a270
+
+    int arr2[10] = {1,2,3,4};
+    t b3[10] = {&arr2[0]};
+    printf("b3[0] = %p,&arr2 = %p\n",b3[0],&arr2); // b3[0] = 0x7ffeee49d240,&arr2 = 0x7ffeee49d240%
+
+    // 函数指针
+    void (*f)(const char *) = say_hello; // 函数指针,(*f)函数指针类型，f是指向这种函数的指针
+    f("abc");
+
+    fn f1 = say_hello;
+    f1("heige"); // hello,heige
+
     return 0;
 }
 
