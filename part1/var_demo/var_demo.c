@@ -1,5 +1,8 @@
 #include<stdio.h>
 
+// 定义常量
+const int AMOUNT = 100;
+
 int main () {
     int hour = 10, minute = 59;
     char first = 'a';
@@ -18,6 +21,21 @@ int main () {
     // 一行里定义多个变量
     int m =1,n = 12;
     printf("m = %d n = %d\n",m,n);
-    
+
+    // AMOUNT = 10;// variable 'AMOUNT' declared const here
+    printf("amount const = %d\n",AMOUNT);
+
+    printf("%f\n",10 / 9.0); // 1.111111
+
+    printf("%d\n",10 /3 * 3); // 9
+
+    //  format specifies type 'int' but the argument has type 'double'
+    // 程序的结果是一个double类型
+    // printf("%d\n",10.0/3);
+    //
+    // 浮点数计算，有小数点表示浮点数
+    // 当整数和浮点数同时出现，会把整数转换为浮点数，然后进行浮点数的计算
+    printf("%f\n",10.0/3 * 3); // 10.000000
+
     return 0;
 }

@@ -4,6 +4,7 @@
 # 目录
     hello c初体验
     var_demo 变量使用
+    scanf_printf 输入/输出
     str 字符串使用
     enum 枚举定义
     array 数组使用

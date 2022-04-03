@@ -7,15 +7,19 @@ int main (void) {
     printf("please input price:");
     scanf("%d", &price);
 
-    int total = 100;
-    int change = total - price;
+    int amount = 100;
+    printf("please input amount:");
+    scanf("%d",&amount);
+    // c99写法，变量可以在哪里用提前定义下就可以
+    int change = amount - price;
     printf("change price:%d", change);
 
     return 0;
 }
 
 /*
- * % ./a.out
+% ./a.out
 please input price:12
+please input amount:100
 change price:88
  */
