@@ -7,6 +7,7 @@
 // 1.代码可读性好，2.维护方便 3.可移植性好
 typedef unsigned char Byte;
 
+// 定义函数类型
 typedef char (*func) (void);
 
 typedef func Arr[5]; // Arr是一个数组，数组的元素是func类型，个数为5

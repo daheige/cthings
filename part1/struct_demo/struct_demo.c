@@ -24,6 +24,7 @@ enum coord_type {
     POLAR = 1
 };
 
+// 结构体使用
 struct complex_data {
     enum coord_type t; // 结构体中嵌入枚举类型
     double a, b;
