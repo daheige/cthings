@@ -37,5 +37,9 @@ int main () {
     // 当整数和浮点数同时出现，会把整数转换为浮点数，然后进行浮点数的计算
     printf("%f\n",10.0/3 * 3); // 10.000000
 
+    // 双精度浮点数double
+    double foot = 1.2;
+    printf("foot = %lf",foot);
+
     return 0;
 }
