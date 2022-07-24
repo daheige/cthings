@@ -1,8 +1,9 @@
 #include <stdio.h>
 
-// 函数声明签名定义
+// 函数原型定义
 // 返回值类型 function名字 参数0个或多个
-int power(int m, int n);
+// int power(int m, int n);
+int power(int, int); // 原型定义中的参数名字可选
 int main()
 {
 
@@ -13,7 +14,7 @@ int main()
     }
 }
 
-// power函数实现
+// power函数声明实现
 int power(int base, int n)
 {
     int i, p = 1;
