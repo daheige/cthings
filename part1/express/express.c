@@ -3,7 +3,8 @@
 
 #include <stdio.h>
 
-int main (void) {
+int main(void)
+{
     int total_minute;
     int hour = 2;
     int min = 3;
@@ -13,4 +14,3 @@ int main (void) {
 
     return 0;
 }
-
