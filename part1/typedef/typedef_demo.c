@@ -7,7 +7,8 @@
 // 1.代码可读性好，2.维护方便 3.可移植性好
 typedef unsigned char Byte;
 
-// 定义函数类型
+// 定义函数类型，不需要参数的函数指针定义，返回值是char
+// 类似函数char get_ch (void)
 typedef char (*func) (void);
 
 typedef func Arr[5]; // Arr是一个数组，数组的元素是func类型，个数为5
