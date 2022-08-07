@@ -17,6 +17,7 @@ int power2(int base, int n)
     return p;
 }
 
+void delete_char(char s[],int c);
 int main()
 {
 
@@ -27,6 +28,11 @@ int main()
     }
 
     printf("power2(2,1) = %d\n", power2(2, 1));
+
+    // 删除某个字符
+    char a[] = "hello";
+    delete_char(a,'h');
+    printf("after delete_char %s",a);
 }
 
 // power函数声明实现
@@ -39,4 +45,16 @@ int power(int base, int n)
     }
 
     return p;
+}
+
+void delete_char(char s[],int c){
+    int i = 0,j = 0;
+    for(;s[i] != '\0';i++){
+        if(s[i] != c){
+            s[j] = s[i];
+            j++;
+        }
+    }
+
+    s[j] = '\0';
 }
