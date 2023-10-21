@@ -45,6 +45,33 @@ struct segment {
     struct complex_data e_cd;
 };
 
+struct Book{
+    char title[50];
+    char author[50];
+    char subject[100];
+    int book_id;
+};
+
+// typedef 来为用户自定义的数据类型取一个新的名字
+// 通过typedef 定义类型别名 struct后面的BookInfo可以省略
+typedef struct BookInfo {
+    char title[50];
+    char author[50];
+    char subject[100];
+    int book_id;
+} BookInfo;
+
+//typedef struct {
+//    char title[50];
+//    char author[50];
+//    char subject[100];
+//    int book_id;
+//} BookInfo;
+
+void book_desc(BookInfo b){
+    printf("b.title:%s b.author:%s b.book_id=%d\n",b.title,b.author,b.book_id);
+}
+
 int main () {
     struct point p;
     p.x = 1;
@@ -72,8 +99,27 @@ int main () {
     printf("a = %f,b = %f\n", c2.a, c2.b);
 
     struct segment s = {c, c2};
-    printf("s.cd.a = %f,s.cd.b = %f", s.cd.a, s.cd.b);
-    printf("s.e_cd.a = %f,s.e_cd.b = %f,s.e_cd.t = %d", s.e_cd.a, s.e_cd.b,s.e_cd.t);
+    printf("s.cd.a = %f,s.cd.b = %f\n", s.cd.a, s.cd.b);
+    printf("s.e_cd.a = %f,s.e_cd.b = %f,s.e_cd.t = %d\n", s.e_cd.a, s.e_cd.b,s.e_cd.t);
+
+    printf("segment size:%zu bytes\n",sizeof(s)); // segment size:48 bytes
+
+    // 通过.xx到方式赋值字段
+    struct Book b = {
+          .title = "golang",
+          .author = "google",
+          .subject = "goroutine",
+          .book_id = 1
+    };
+    printf("b.title:%s b.author:%s b.book_id=%d\n",b.title,b.author,b.book_id);
+
+    BookInfo book = {
+            .title = "c lang",
+            .author = "c",
+            .subject = "c",
+            .book_id = 2
+    };
+    book_desc(book);
 
     return 0;
 }

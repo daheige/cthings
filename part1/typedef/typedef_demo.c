@@ -19,7 +19,7 @@ char get_ch (void) {
 
 // 定义结构体别名
 typedef struct {
-    char *name;
+    char *name; // 字符串指针
     int leg_count, speed;
 } animal;
 
