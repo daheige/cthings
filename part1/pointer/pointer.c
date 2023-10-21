@@ -1,6 +1,7 @@
 // pointer
 // Created by daheige on 2021/11/6.
 #include <stdio.h>
+#include <stdlib.h>
 
 // 指针类型的参数和返回值
 // 交换px,py的内存地址
@@ -55,8 +56,31 @@ typedef int *t;
 // 函数指针
 typedef void (*fn)(const char *);
 
+// 定义函数指针
+// 声明一个指向同样参数、返回值的函数指针类型
+typedef int (*max_fn)(int,int);
+
 void say_hello(const char *str){
     printf("hello,%s\n",str);
+}
+
+int max(int a,int b){
+    return a > b ? a : b;
+}
+
+// 获取随机数字
+int get_rand_value(){
+    return rand();
+}
+
+// 将函数指针传递作为另一个函数的入参，也就是将函数作为变量
+// array是一个int指针变量
+// int (*get_next_rand)(void) 是一个返回int值的函数，它不需要参数，因此使用void作为
+// get_next_rand的参数
+void populate_array(int *array,size_t size,int (*get_next_rand)(void)){
+    for (size_t i = 0;i<size;i++){
+        array[i] = get_next_rand(); // 调用函数
+    }
 }
 
 int main (void) {
@@ -129,12 +153,26 @@ int main (void) {
     t b3[10] = {&arr2[0]};
     printf("b3[0] = %p,&arr2 = %p\n",b3[0],&arr2); // b3[0] = 0x7ffeee49d240,&arr2 = 0x7ffeee49d240%
 
-    // 函数指针
+    // 函数指针,此时这个函数指针的没有返回值
     void (*f)(const char *) = say_hello; // 函数指针,(*f)函数指针类型，f是指向这种函数的指针
     f("abc");
 
     fn f1 = say_hello;
     f1("heige"); // hello,heige
+
+    max_fn max_func = max;
+    int m = max_func(1,3);
+    printf("max m = %d\n",m);
+
+    // 函数作为参数使用
+    int my_arr[10];
+    // populate_array带一个参数 array是一个int指针变量
+    // 这里将数组名传递进入，这个参数指向一串元素中的首元素，则经常写成数组的形式
+    // get_rand_value 是一个函数
+    populate_array(my_arr,10,get_rand_value);
+    for(int i = 0;i<10;i++){
+        printf("current rand value:%d\n",my_arr[i]);
+    }
 
     return 0;
 }
