@@ -28,7 +28,7 @@ int main()
     return 0;
 }
 
-// 将一行读如刀s中并返回长度
+// 将一行读如入s中并返回长度
 int get_line(char s[], int lim)
 {
     int c, i;

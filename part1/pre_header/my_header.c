@@ -24,6 +24,9 @@ Person make_person(char *name,const int8_t age){
 void person_show(const Person *p){
     // error: cannot assign to variable 'p' with const-qualified type 'const Person *'
     // p->name = "daheige"; // 这是不允许的
-    printf("name:%s age:%d",p->name,p->age);
+    printf("name:%s age:%d\n",p->name,p->age);
+    char desc[100];
+    sprintf(desc,"name:%s,age:%d",p->name,p->age);
+    printf("sprintf res:%s\n",desc);
 }
 

@@ -17,5 +17,11 @@ int main(){
     p.name = "xiaoming";
     person_show(&p);
 
+    // 获取文件名，时间，行号
+    printf("filename:%s\n",__FILE_NAME__);
+    printf("file:%s\n",__FILE__);
+    printf("Date:%s\n",__DATE__);
+    printf("Time:%s\n",__TIME__);
+    printf("line:%d\n",__LINE__);
     return 0;
 }
