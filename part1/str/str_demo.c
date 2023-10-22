@@ -30,5 +30,8 @@ int main (void) {
     len = strlen(str1);
     printf("str1 len = %d\n",len);
 
+    char s1[20]= "abc"; // 赋值后不能再次改变
+    // s1 = "daheige"; // error: array type 'char[20]' is not assignable
+    printf("s1 = %s",s1);
     return 0;
 }
