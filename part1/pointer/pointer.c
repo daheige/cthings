@@ -18,6 +18,7 @@ int *swap(int *px, int *py) {
 // 如果这个参数指向一个元素，通常写成指针int *a的形式，如果这个参数指向一串元素中的首元素，则经常写成数组的形式
 // 在函数原型中，如果参数是数组，则等价于参数是指针的形式
 void print_array(int a[]) {
+//void print_array(int *a) {
     for (int i = 0; i < 10; i++) {
         printf("current value is: %d\n", a[i]);
     }
