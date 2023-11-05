@@ -10,10 +10,9 @@ int main(){
     strcpy(name,"c lang,hello,world");
 
     // 使用malloc函数动态分配内存空间
-//    desc = (char *)malloc(100 * sizeof(char)); // 分配200个字符的空间
+    // desc = (char *)malloc(100 * sizeof(char)); // 分配200个字符的空间
     // 也可以使用 calloc() 来分配内存
     desc = calloc(100,sizeof(char)); // 分配内存
-
     if (desc == NULL){
         fprintf(stderr,"Error - unable to allocate required memory\n");
     }else{
@@ -22,7 +21,6 @@ int main(){
 
     printf("name = %s\n",name);
     printf("desc = %s\n",desc);
-
     // 存储更大的描述信息,使用realloc重新分配更大的内存到指定的newsize大小
     desc = (char *) realloc(desc,100 * sizeof(char));
     if (desc == NULL){
@@ -32,7 +30,6 @@ int main(){
     }
 
     printf("desc = %s\n",desc);
-
     // 当不再使用后，使用free()函数释放内存
     // 用于释放先前分配的内存。它接受一个指向要释放内存的指针作为参数，并将该内存标记为未使用状态
     free(desc);
