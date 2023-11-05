@@ -81,14 +81,14 @@ int main() {
     }
 
     struct wordInfo words[] = {
-            "auto",0,
-            "go",1,
-            "php",2,
-            "default",3,
-            "void",4
+            "auto", 0,
+            "go", 1,
+            "php", 2,
+            "default", 3,
+            "void", 4
     };
-    for (size_t i = 0;i < sizeof(words) /sizeof(words[0]);i++){
-        printf("word:%s count:%d\n",words[i].word,words[i].count);
+    for (size_t i = 0; i < sizeof(words) / sizeof(words[0]); i++) {
+        printf("word:%s count:%d\n", words[i].word, words[i].count);
     }
 
     return 0;
