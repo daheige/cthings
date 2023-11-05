@@ -16,4 +16,5 @@ int main(){
     u.iVal = 1;
     printf("union value:%d",u.iVal);
 
+    return 0;
 }
