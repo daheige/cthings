@@ -67,8 +67,9 @@ struct unit {
 
 typedef int *t;
 
-// 定义函数指针类型别名，fn是一个指向函数的指针,这个函数fn签名是(const char *str)
 // 函数指针
+// 定义函数指针类型别名，fn是一个指向函数的指针,
+// 这个函数fn签名是(const char *str)
 typedef void (*fn)(const char *);
 
 // 定义函数指针
